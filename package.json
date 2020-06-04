@@ -16,6 +16,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
-    "db:migrate": "knex migrate:latest --knexfile knexfile.ts migrate:latest"
+    "db:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "db:seed": "knex --knexfile knexfile.ts seed:run"
   }
 }
