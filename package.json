@@ -10,12 +10,13 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
+    "dotenv": "^8.2.0",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "dev": "ts-node-dev --transpileOnly --ignore-watch src/server.ts",
+    "dev": "ts-node-dev --transpileOnly --ignore-watch -r dotenv/config src/server.ts",
     "db:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "db:seed": "knex --knexfile knexfile.ts seed:run"
   }
