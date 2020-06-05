@@ -2,6 +2,38 @@ import { Request, Response } from 'express'
 import connection from '../database/connection'
 
 class PointController {
+  async show(req: Request, res: Response) {
+    const { pointId } = req.params
+    const point = await connection('points').where('id', pointId).first()
+    if (!point) return res.sendStatus(404)
+
+    const items = await connection('items').join(
+      'point-items',
+      'items.id',
+      '=',
+      'point-items.item_id'
+    )
+
+    return res.json({ ...point, items: items.map((item) => item.title) })
+  }
+
+  async index(req: Request, res: Response) {
+    const { city, uf, items: i } = req.query
+    const items = String(i)
+      .split(',')
+      .map((item) => Number(item.trim()))
+
+    const points = await connection('points')
+      .join('point_items', 'points.id', '=', 'point_items.point_id')
+      .whereIn('point_items.item_id', items)
+      .where('city', String(city))
+      .where('city', String(uf))
+      .distinct()
+      .select('points.*')
+
+    return res.json(points)
+  }
+
   async create(req: Request, res: Response) {
     const data = req.body
     const { items, ...rest } = data
@@ -13,9 +45,14 @@ class PointController {
       ...rest,
     })
 
-    const pointsItems = items.map((item_id: number) => ({ item_id, point_id }))
+    console.log(point_id)
 
-    await trx('point_items').insert(pointsItems)
+    const pointItems = items.map((item_id: number) => ({
+      item_id,
+      point_id,
+    }))
+
+    await trx('point_items').insert(pointItems)
 
     return res.sendStatus(204)
   }
