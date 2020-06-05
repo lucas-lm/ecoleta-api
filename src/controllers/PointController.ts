@@ -8,10 +8,10 @@ class PointController {
     if (!point) return res.sendStatus(404)
 
     const items = await connection('items').join(
-      'point-items',
+      'point_items',
       'items.id',
       '=',
-      'point-items.item_id'
+      'point_items.item_id'
     )
 
     return res.json({ ...point, items: items.map((item) => item.title) })
@@ -45,14 +45,13 @@ class PointController {
       ...rest,
     })
 
-    console.log(point_id)
-
     const pointItems = items.map((item_id: number) => ({
       item_id,
       point_id,
     }))
 
     await trx('point_items').insert(pointItems)
+    await trx.commit()
 
     return res.sendStatus(204)
   }
