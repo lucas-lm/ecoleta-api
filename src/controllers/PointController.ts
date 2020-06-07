@@ -36,24 +36,27 @@ class PointController {
 
   async create(req: Request, res: Response) {
     const data = req.body
-    const { items, ...rest } = data
+    const { items, ...rest } = data // TODO: middleware to validate data and put on req.data
+
+    const file = req.file as Express.MulterS3.File
+    const { location: image } = file
 
     const trx = await connection.transaction()
 
-    const [point_id] = await trx('points').insert({
-      image: 'fake-image',
-      ...rest,
-    })
+    const [point_id] = await trx('points').insert({ image, ...rest })
 
-    const pointItems = items.map((item_id: number) => ({
-      item_id,
-      point_id,
-    }))
+    const pointItems = items
+      .split(',')
+      .map((item_id: string) => Number(item_id.trim()))
+      .map((item_id: number) => ({
+        item_id,
+        point_id,
+      }))
 
     await trx('point_items').insert(pointItems)
     await trx.commit()
 
-    return res.sendStatus(204)
+    return res.sendStatus(201)
   }
 }
 
