@@ -27,6 +27,8 @@
   "scripts": {
     "dev": "ts-node-dev --transpileOnly --ignore-watch -r dotenv/config src/server.ts",
     "db:migrate": "knex --knexfile knexfile.ts migrate:latest",
-    "db:seed": "knex --knexfile knexfile.ts seed:run"
+    "db:seed": "knex --knexfile knexfile.ts seed:run",
+    "build": "yarn tsc",
+    "start": "node dist/server.js"
   }
 }

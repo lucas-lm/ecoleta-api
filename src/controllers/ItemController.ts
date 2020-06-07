@@ -4,10 +4,10 @@ import connection from '../database/connection'
 class ItemController {
   async index(req: Request, res: Response) {
     const items = await connection('items').select('*')
-    const { BASE_URL } = process.env
+    const host = req.get('Host')
     const serializedItems = items.map((item) => ({
       ...item,
-      image_url: `${BASE_URL}/static/${item.image}`,
+      image_url: `${host}/static/${item.image}`,
     }))
     return res.json(serializedItems)
   }
