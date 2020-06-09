@@ -1,4 +1,4 @@
-# Ecoleta
+# Ecoleta :earth_asia: :earth_africa: :earth_americas:
 
 O Ecoleta tem o obetivo de mapear pontos de coleta de resíduos que não podem ser descartados de qualquer maneira, como pilhas e lixo eletrônico.
 Um ponto de coleta pode ser cadastrado pelo aplicativo web, e os dados de localização deste ponto de coleta ficam disponíveis na API pública do ecoleta.
@@ -9,10 +9,19 @@ Este projeto foi idealizado pela Rocketseat na primeira edição da Next Level W
 ![](https://imgur.com/WvKt6CG.gif)
 ---
 
+## Como funciona?
+
+1. Um dono de um estabelecimento que colete resíduos especiais para descarte se cadastra na [plataforma](https://lucas-lm.github.io/ecoleta-web/).
+2. Os dados sobre este estabelecimento como itens que coleta, localização, nome e endereço ficam disponíveis na nossa base de dados e pode ser acessado publicamente através da nossa API. Você pode até mesmo usar estes dados em seu próprio site/serviço/app ou criar um client personalizado :smirk:
+3. Uma pessoa em busca de um local para descartar seus resíduos especiais entra no app e encontra os pontos de coleta que deseja. Por baixo dos panos o app busca os dados dos pontos de coleta na nossa API pública.
+4. A partir do app a pessoa pode escolher entrar em contato com o estabelecimento escolhido ou ir até lá para fazer o descarte.
+5. O estabelecimento cuida para que o descarte seja feito adequadamente e o meio ambiente agradece :seedling: :evergreen_tree: :deciduous_tree:
+
+
 ## API
 
 A API do ecoleta fornece acesso a uma base de dados com informações sobre pontos de coleta de resíduos que não podem ser descartados no meio ambiente.
-A URL base para acessar essas informações é https://ecoleta-279615.rj.r.appspot.com/ e os endpoints disponíveis estão todos documentados aqui.
+A URL base para acessar essas informações é https://ecoleta-279615.rj.r.appspot.com/ e os endpoints disponíveis estão todos documentados aqui abaixo.
 
 ### Experimente
 
@@ -45,43 +54,26 @@ https://ecoleta-279615.rj.r.appspot.com/points?city=Taquaritinga&uf=SP&items=1,2
 
 Em caso de sucesso, o status da requisição retornado é 2xx.
 
+Repositório: https://github.com/lucas-lm/ecoleta-api
 
-## Aplicação Web
+## Tecnologias utilizadas
 
-A aplicação web fornece uma interface gráfica amigável para registrar um novo ponto de coleta na base de dados do ecoleta.
-Você pode acessar a aplicação web [clicando aqui](https://lucas-lm.github.io/ecoleta-web/), ou se preferir copiar a URL: https://lucas-lm.github.io/ecoleta-web/
+- [NodeJS](https://nodejs.org/en/) - Interpretador de JavaScript assíncrono
+- [TypeScript](https://www.typescriptlang.org/) - Um superset do javascript com tipagem estática que compila para javascript limpo
+- [PostgreSQL](https://www.postgresql.org/) e [SQLite3](https://www.sqlite.org/index.html) - Bancos de dados relacionais. (SQLite é usado em ambiente de desenvolvimento e PostgreSQL em produção)
+- [Express](https://expressjs.com/) - Framework web rápido, minimalista e não opinativo para NodeJS
+- [AWS S3](https://aws.amazon.com/pt/s3/) - Armazenamento de arquivos. (Utilizado para armazenar as imagens enviadas)
+- [KnexJS](http://knexjs.org/) - Um query builder flexível e portável para PostgreSQL, MySQL e SQLite3
+- [Multer](https://github.com/expressjs/multer) - Um middleware para ExpressJS para o tratamento de requisições multipart/form-data
 
-### Funcionalidades
+## Veja também
 
-- Upload de imagem do ponto de coleta
-  - Você pode escolher uma imagem para o seu ponto de coleta
-  - Imagens aceitas apenas nos formatos JPG, PNG e GIF
-  - Tamanho máximo da imagem de 2 MB
-- Integração com mapas
-  - Você pode selecionar no mapa a localização exata do seu ponto de coleta
-  - Você pode 
-- Geolocalização
-- Opções para cidade/estado sincronizada com base de dados do IBGE
+- Web app em funcionamento: https://lucas-lm.github.io/ecoleta-web
+- Repositório da app nativo: https://github.com/lucas-lm/ecoleta-native
+- Repositório do app web: https://github.com/lucas-lm/ecoleta-web
 
-## App Mobile
+## Autor
 
-O app mobile fornece uma interface gráfica onde é possível visualizar pontos de coleta pelo mapa.
-O app está disponível para android na Play Store.
+Feito com :heart: e :coffee: por:
 
-### Funcionalidades
-
-- Visualização de detalhes dos pontos de coleta
-  - Itens que o ponto de coleta aceita
-  - Whatsapp
-  - E-mail
-  - Nome do ponto de coleta
-  - Endereço do ponto de coleta
-- Geolocalização
-  - Abre o mapa centralizado na região em que você se encontra
-  - Exibe pontos de coleta próximos de você
-- Integração com mapas padrão do smartphone
-  - Você pode visualizar pontos de coleta no mapa
-- Integração com whatsapp
-  - Você pode enviar mensagem via whatsapp para o ponto de coleta diretamente do app
-- Integração com aplicativo de email
-  - Você pode enviar mensagem via e-mail para o ponto de coleta diretamente do app
+[<img src="https://avatars3.githubusercontent.com/u/29049644?s=460&u=6fcf78abdf0e007afa9b2a31beaf686d79fa9173&v=4" width=115><br><sub>@lucas-lm</sub>](https://github.com/lucas-lm)
