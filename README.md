@@ -1,4 +1,7 @@
-# Ecoleta :earth_asia: :earth_africa: :earth_americas:
+# :recycle: Ecoleta ::recycle:
+
+![GitHub last commit](https://img.shields.io/github/last-commit/lucas-lm/ecoleta-api)
+![GitHub](https://img.shields.io/github/license/lucas-lm/ecoleta-api)
 
 O Ecoleta tem o obetivo de mapear pontos de coleta de resíduos que não podem ser descartados de qualquer maneira, como pilhas e lixo eletrônico.
 Um ponto de coleta pode ser cadastrado pelo aplicativo web, e os dados de localização deste ponto de coleta ficam disponíveis na API pública do ecoleta.
@@ -6,8 +9,8 @@ Os pontos de coleta cadastrados podem ser visualizados através do aplicativo ec
 Este projeto foi idealizado pela Rocketseat na primeira edição da Next Level Week (NLW), durante a semana do meio ambiente de 2020.
 
 ---
-![](https://imgur.com/WvKt6CG.gif)
----
+
+## ![](https://imgur.com/WvKt6CG.gif)
 
 ## Como funciona?
 
@@ -16,7 +19,6 @@ Este projeto foi idealizado pela Rocketseat na primeira edição da Next Level W
 3. Uma pessoa em busca de um local para descartar seus resíduos especiais entra no app e encontra os pontos de coleta que deseja. Por baixo dos panos o app busca os dados dos pontos de coleta na nossa API pública.
 4. A partir do app a pessoa pode escolher entrar em contato com o estabelecimento escolhido ou ir até lá para fazer o descarte.
 5. O estabelecimento cuida para que o descarte seja feito adequadamente e o meio ambiente agradece :seedling: :evergreen_tree: :deciduous_tree:
-
 
 ## API
 
